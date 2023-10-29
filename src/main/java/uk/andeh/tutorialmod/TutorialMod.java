@@ -14,6 +14,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import uk.andeh.tutorialmod.item.ModCreativeModTabs;
+import uk.andeh.tutorialmod.item.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TutorialMod.MOD_ID)
@@ -25,6 +27,12 @@ public class TutorialMod {
 
     public TutorialMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        // Registers our custom Creative Mode Tabs
+        ModCreativeModTabs.register(modEventBus);
+
+        // Registers our custom items to the game
+        ModItems.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -42,8 +50,14 @@ public class TutorialMod {
     private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
-    // Add the example block item to the building blocks tab
+    // Add items or blocks to the creative menu
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        /*
+         * if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+         *    event.accept(ModItems.SAPPHIRE);
+         *    event.accept(ModItems.RAW_SAPPHIRE);
+         * }
+         */
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
