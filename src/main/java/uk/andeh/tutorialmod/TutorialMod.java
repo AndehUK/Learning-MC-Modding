@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import uk.andeh.tutorialmod.block.ModBlocks;
 import uk.andeh.tutorialmod.item.ModCreativeModTabs;
 import uk.andeh.tutorialmod.item.ModItems;
 
@@ -33,6 +34,9 @@ public class TutorialMod {
 
         // Registers our custom items to the game
         ModItems.register(modEventBus);
+
+        // Registers our custom blocks to the game
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

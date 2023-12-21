@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import uk.andeh.tutorialmod.TutorialMod;
+import uk.andeh.tutorialmod.block.ModBlocks;
 
 public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MOD_TABS =
@@ -25,6 +26,9 @@ public class ModCreativeModTabs {
 
                                 // To add a Vanilla Minecraft item:
                                 // pOutput.accept(Items.DIAMOND); // .get() not needed for vanilla items
+
+                                pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
+                                pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
                             })
                             .build());
 
